@@ -10,4 +10,5 @@ defmodule Rumbl.UserController do
     user = Repo.get(Rumbl.User, id)
     render conn, "show.html", user: user
   end
+
 end
