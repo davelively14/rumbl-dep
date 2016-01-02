@@ -10,5 +10,5 @@
   <div class="form-group">
     <%= text_input f, :password, placeholder: "Password", class: "form-control" %>
   </div>
-  <%= sumbit "Create User", class: "btn btn-primary" %>
+  <%= submit "Create User", class: "btn btn-primary" %>
 <% end %>
