@@ -27,5 +27,6 @@ defmodule Rumbl.UserController do
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
+
   end
 end
