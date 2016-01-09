@@ -25,4 +25,5 @@ defmodule Rumbl.Router do
   # scope "/api", Rumbl do
   #   pipe_through :api
   # end
+
 end
