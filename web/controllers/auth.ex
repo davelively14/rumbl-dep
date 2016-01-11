@@ -1,5 +1,6 @@
 defmodule Rumbl.Auth do
   import Plug.Conn
+  import Comeonin.Bcrypt, only: [checkpw: 2]
 
   # Take given options and extracate the keywords from the repository. If key does
   # not exist, error will be raised. Rumbl.Auth will always require the :repo option.
@@ -20,4 +21,5 @@ defmodule Rumbl.Auth do
     |> put_session(:user_id, user.id)
     |> configure_session(renew: true)
   end
+
 end
