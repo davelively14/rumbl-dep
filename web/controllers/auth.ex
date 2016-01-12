@@ -37,7 +37,8 @@ defmodule Rumbl.Auth do
   end
 
   def logout(conn) do
-    # drop: true will drop the entire session
+    # drop: true will drop the entire session. To just delete user_id info only
+    # call delete_session(conn, :user_id)
     configure_session(conn, drop: true)
   end
 end
