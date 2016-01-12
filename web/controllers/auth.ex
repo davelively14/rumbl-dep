@@ -35,4 +35,9 @@ defmodule Rumbl.Auth do
         {:error, :not_found, conn}
     end
   end
+
+  def logout(conn) do
+    # drop: true will drop the entire session
+    configure_session(conn, drop: true)
+  end
 end
