@@ -1,6 +1,8 @@
 defmodule Rumbl.Auth do
   import Plug.Conn
   import Comeonin.Bcrypt, only: [checkpw: 2]
+  import Phoenix.Controller
+  alias Rumbl.Router.Helpers
 
   # Take given options and extracate the keywords from the repository. If key does
   # not exist, error will be raised. Rumbl.Auth will always require the :repo option.
@@ -40,5 +42,16 @@ defmodule Rumbl.Auth do
     # drop: true will drop the entire session. To just delete user_id info only
     # call delete_session(conn, :user_id)
     configure_session(conn, drop: true)
+  end
+
+  def authenticate_user(conn, _opts) do
+    if conn.assigns.current_user do
+      conn
+    else
+      conn
+      |> put_flash(:error, "You must be logged in to access that page")
+      |> redirect(to: page_path(conn, :index))
+      |> halt()
+    end
   end
 end
